@@ -1,0 +1,136 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MIND MAZE</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- HOME SCREEN -->
+    <section id="homeScreen" class="screen home-screen">
+       <div class="brain-neon">
+    <img
+      src="https://img.icons8.com/ios/50/brain--v1.png"
+      alt="Brain Icon">
+</div> 
+        <h1 class="main-logo">MIND MAZE</h1>
+        <p class="tagline">ENTER THE UNKNOWN</p>
+
+        <div class="home-maze">
+            <div class="maze-symbol">✦</div>
+        </div>
+
+        <p class="home-description">
+            Challenge your brain.<br>
+            Find the exit. Complete 100 levels.
+        </p>
+
+        <button class="primary-btn" onclick="showLevels()">
+            ENTER GAME <span>➜</span>
+        </button>
+
+        <div class="home-footer">100 LEVELS · INFINITE CHALLENGE</div>
+    </section>
+
+
+    <!-- LEVEL SELECTION SCREEN -->
+    <section id="levelScreen" class="screen hidden">
+        <header class="top-header">
+            <div class="small-logo">MIND MAZE</div>
+            <div class="xp-display">⭐ <span id="xpDisplay">0</span> XP</div>
+        </header>
+
+        <div class="page-content">
+            <button class="back-btn" onclick="showHome()">← BACK</button>
+
+            <h2 class="section-heading">SELECT LEVEL</h2>
+            <p class="section-subtitle">Choose your next challenge</p>
+
+            <div class="level-progress">
+                <div class="progress-info">
+                    <span>YOUR PROGRESS</span>
+                    <span id="progressText">1 / 100</span>
+                </div>
+                <div class="progress-track">
+                    <div id="progressBar" class="progress-fill"></div>
+                </div>
+            </div>
+
+            <div id="levelGrid" class="level-grid"></div>
+
+            <p class="level-note">🔒 Complete levels to unlock new challenges.</p>
+        </div>
+    </section>
+
+
+    <!-- GAME SCREEN -->
+    <section id="gameScreen" class="screen hidden">
+        <header class="top-header">
+            <div class="small-logo">🧠 MIND MAZE</div>
+            <div class="xp-display">⭐ <span id="gameXP">0</span> XP</div>
+        </header>
+
+        <div class="page-content">
+            <button class="back-btn" onclick="showLevels()">← LEVELS</button>
+
+            <div class="game-heading">
+                <h2>LEVEL <span id="gameLevel">1</span></h2>
+                <span id="difficulty" class="difficulty">EASY</span>
+            </div>
+
+            <div class="game-stats">
+                <div class="game-stat">
+                    <span id="moves">0</span>
+                    <small>MOVES</small>
+                </div>
+                <div class="game-stat">
+                    <span id="timer">00:00</span>
+                    <small>TIME</small>
+                </div>
+            </div>
+
+            <div class="maze-container">
+                <div id="mazeBoard"></div>
+            </div>
+
+            <div id="gameMessage" class="game-message">
+                Find the green exit!
+            </div>
+
+            <div class="movement-controls">
+                <div></div>
+                <button onclick="movePlayer(0,-1)">▲</button>
+                <div></div>
+                <button onclick="movePlayer(-1,0)">◀</button>
+                <button onclick="movePlayer(0,1)">▼</button>
+                <button onclick="movePlayer(1,0)">▶</button>
+            </div>
+
+            <button class="restart-btn" onclick="restartLevel()">
+                ↻ RESTART LEVEL
+            </button>
+        </div>
+    </section>
+
+
+    <!-- LEVEL COMPLETE POPUP -->
+    <div id="winPopup" class="popup hidden">
+        <div class="popup-box">
+            <div class="win-icon">🏆</div>
+            <h2>LEVEL COMPLETED!</h2>
+            <p>Congratulations! You solved the maze.</p>
+            <h3>+100 XP ⭐</h3>
+            <button class="primary-btn" onclick="nextLevel()">
+                NEXT LEVEL ➜
+            </button>
+            <button class="back-btn popup-back" onclick="showLevels()">
+                LEVEL SELECT
+            </button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
